@@ -1,12 +1,22 @@
 # Tools Index (master list)
 
-## Heat Sources
-- Oven / broiler
-- Stovetop
-- Rice cooker (optional but handy)
-- Toaster oven / air fryer (optional)
+## My Equipment (available)
 
-## Cookware
+### Heat Sources
+- Oven / broiler ✓
+- Stovetop ✓
+- Rice cooker ✓
+- Crockpot (2 quart) ✓
+- Anova sous vide circulator ✓
+
+### Specialty Appliances
+- Ninja Creami ✓
+
+---
+
+## Reference: Common Kitchen Tools
+
+### Cookware
 - Sheet pan + (optional) wire rack
 - Stainless skillet
 - Saucepan (small/medium)
