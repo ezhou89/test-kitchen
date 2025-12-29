@@ -31,7 +31,14 @@ Ranked by preference and enjoyment cooking:
 | Fish | ★★★☆☆ | OK, less enjoyable to cook |
 | Turkey | ★★★☆☆ | OK, less enjoyable to cook |
 
-**Goal:** High-protein meals preferred.
+---
+
+## Nutrition Goals
+
+- **High protein** — meat-forward meals preferred
+- **High fiber** — for satiety and health
+- **High satiety** — filling meals that last
+- **More leafy greens** — active goal to incorporate
 
 ---
 
@@ -44,8 +51,6 @@ Ranked by preference and enjoyment cooking:
 - Sweet potatoes
 - Brussels sprouts
 
-**Goal:** Incorporate more leafy greens into diet.
-
 ---
 
 ## Cuisine Preferences
@@ -56,6 +61,20 @@ Ranked by preference and enjoyment cooking:
 - Japanese
 - Korean
 - Italian
+
+---
+
+## Lifestyle & Constraints
+
+**Time:** Limited — constantly working, need low-effort cooking
+
+**Budget:** No constraints
+
+**Preferred Cooking Methods:**
+- Slow cooker — set it and forget it
+- Baked/roasted — hands-off oven time
+
+**Cooking Style:** Meat and potatoes — hearty, satisfying, no-fuss meals
 
 ---
 
@@ -89,8 +108,11 @@ When creating new protocols for this kitchen:
 
 1. **Avoid** raw banana, fuzzy fruits, and almonds in all recipes
 2. **Prefer** beef and pork for protein-forward dishes
-3. **Include** leafy greens where possible (goal area)
-4. **Lean into** umami-forward, Asian-inspired, or comfort food profiles
-5. **Embrace** heat and spice; avoid bitter preparations
-6. **Use** pantry staples (soy, mirin, sesame, rice vinegar) for weeknight convenience
-7. **Sub** raw tomato with cooked/sauce forms when tomato flavor is needed
+3. **Prioritize** slow cooker and baked/roasted methods — minimal active time
+4. **Design for busy schedules** — low-effort, hands-off cooking
+5. **Build hearty meals** — meat and potatoes style, high satiety
+6. **Include** fiber sources and leafy greens where possible (goal area)
+7. **Lean into** umami-forward, Asian-inspired, or comfort food profiles
+8. **Embrace** heat and spice; avoid bitter preparations
+9. **Use** pantry staples (soy, mirin, sesame, rice vinegar) for convenience
+10. **Sub** raw tomato with cooked/sauce forms when tomato flavor is needed
