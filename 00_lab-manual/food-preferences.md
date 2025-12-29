@@ -35,10 +35,25 @@ Ranked by preference and enjoyment cooking:
 
 ## Nutrition Goals
 
+**Daily Target:** 1800–2000 calories (cutting weight)
+
 - **High protein** — meat-forward meals preferred
 - **High fiber** — for satiety and health
 - **High satiety** — filling meals that last
 - **More leafy greens** — active goal to incorporate
+
+**Meal Planning Notes:**
+- Fine with eating the same meals repeatedly
+- Prioritize calorie density awareness for portion planning
+
+---
+
+## Go-To Staple Meals
+
+Reliable fallbacks that require zero thought:
+
+- **PB&J** — always works
+- **Costco beef chili** — easy protein-forward option
 
 ---
 
@@ -116,3 +131,5 @@ When creating new protocols for this kitchen:
 8. **Embrace** heat and spice; avoid bitter preparations
 9. **Use** pantry staples (soy, mirin, sesame, rice vinegar) for convenience
 10. **Sub** raw tomato with cooked/sauce forms when tomato flavor is needed
+11. **Include calorie estimates** — target 1800–2000 cal/day total
+12. **Design for meal prep** — repeatable meals are fine, batch cooking encouraged
