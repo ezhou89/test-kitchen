@@ -7,6 +7,7 @@
 - Stovetop ✓
 - Rice cooker ✓
 - Crockpot (2 quart) ✓
+- Crockpot (6-8 quart) ✓
 - Anova sous vide circulator ✓
 
 ### Specialty Appliances

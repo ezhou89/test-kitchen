@@ -99,8 +99,8 @@ Reliable fallbacks that require zero thought:
 
 **Preferred Cooking Methods:**
 - Sous vide — set and forget for hours, perfect proteins
+- Slow cooker (6-8qt) — batch proteins, stews, chili, braises
 - Baked/roasted — hands-off oven time, sheet pan meals
-- Slow cooker — limited by 2qt size, good for sauces/sides
 
 **Cooking Style:** Meat and potatoes — hearty, satisfying, no-fuss meals
 
@@ -136,7 +136,7 @@ When creating new protocols for this kitchen:
 
 1. **Avoid** raw banana, fuzzy fruits, and almonds in all recipes
 2. **Prefer** beef and pork for protein-forward dishes
-3. **Prioritize** sous vide, sheet pan, and baked methods — minimal active time
+3. **Prioritize** sous vide, slow cooker, sheet pan, and baked methods — minimal active time
 4. **Design for busy schedules** — low-effort, hands-off cooking
 5. **Build hearty meals** — meat and potatoes style, high satiety
 6. **Include** fiber sources and leafy greens where possible (goal area)
