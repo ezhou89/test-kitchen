@@ -85,9 +85,22 @@ Reliable fallbacks that require zero thought:
 
 **Budget:** No constraints
 
+**Skill Level:** Confident in the kitchen
+
+**Cooking Schedule:**
+- Weekend batch prep (primary cooking time)
+- Weeknight reheating/assembly only
+
+**Shopping:**
+- Weekly grocery runs
+- Regular Costco trips
+
+**Storage:** Decent freezer space for batch cooking
+
 **Preferred Cooking Methods:**
-- Slow cooker — set it and forget it
-- Baked/roasted — hands-off oven time
+- Sous vide — set and forget for hours, perfect proteins
+- Baked/roasted — hands-off oven time, sheet pan meals
+- Slow cooker — limited by 2qt size, good for sauces/sides
 
 **Cooking Style:** Meat and potatoes — hearty, satisfying, no-fuss meals
 
@@ -123,7 +136,7 @@ When creating new protocols for this kitchen:
 
 1. **Avoid** raw banana, fuzzy fruits, and almonds in all recipes
 2. **Prefer** beef and pork for protein-forward dishes
-3. **Prioritize** slow cooker and baked/roasted methods — minimal active time
+3. **Prioritize** sous vide, sheet pan, and baked methods — minimal active time
 4. **Design for busy schedules** — low-effort, hands-off cooking
 5. **Build hearty meals** — meat and potatoes style, high satiety
 6. **Include** fiber sources and leafy greens where possible (goal area)
