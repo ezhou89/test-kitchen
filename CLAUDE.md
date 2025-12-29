@@ -8,11 +8,46 @@ This is a **home test-kitchen notebook** for recipe research and development. It
 
 **Core philosophy:** Treat cooking like a science experiment — document variables, track outcomes, iterate systematically.
 
+## User Preferences (Critical)
+
+**IMPORTANT:** Always consult `00_lab-manual/food-preferences.md` before creating recipes.
+
+### Allergies & Aversions
+- **Oral Allergy Syndrome (OAS):** Raw banana, fuzzy fruits (peaches, nectarines, apricots), almonds
+- **Texture/Taste Aversions:** Raw tomato (cooked OK), bitter flavors
+
+### Protein Preferences (ranked)
+1. Beef ★★★★★ (top)
+2. Pork ★★★★★ (top)
+3. Chicken ★★★★☆ (solid go-to)
+4. Fish/Turkey ★★★☆☆ (OK, less enjoyable to cook)
+
+### Nutrition Goals
+- **Daily target:** 1800–2000 calories (cutting)
+- High protein, high fiber, high satiety
+- More leafy greens (active goal)
+
+### Preferred Cooking Methods
+- **Slow cooker (6-8qt):** Primary batch protein method for large cuts
+- **Sous vide:** Mason jars only (no plastic bags) — eggs, oatmeal, portioned proteins, sauces
+- **Baked/roasted:** Hands-off oven time, sheet pan meals
+
+### Cooking Style
+- Weekend batch prep, weeknight reheating/assembly
+- Meat and potatoes style — hearty, satisfying, no-fuss
+- Fine with eating same meals repeatedly
+- Loves heat/spice, avoids bitter
+
 ## Repository Structure
 
 ```
 test-kitchen/
 ├── 00_lab-manual/       # Standards, principles, rubrics, tools reference
+│   ├── food-preferences.md  # CRITICAL: allergies, preferences, goals
+│   ├── principles.md
+│   ├── tasting-rubric.md
+│   ├── measurement-standards.md
+│   └── tools/
 ├── 01_protocols/        # Canonical recipes (your "best known" methods)
 │   ├── proteins/
 │   ├── sauces/
@@ -64,6 +99,12 @@ test-kitchen/
 - Purpose: Multi-course meals with master timelines
 - Template: `templates/menu.md`
 
+### Meal Plans (weekly/goal-based)
+- Location: `08_meal-plans/`
+- Purpose: Weekly meal planning with batch prep and leftover routing
+- Template: `templates/meal-plan.md`
+- Naming: `YYYY-wNN_<goal-name>.md` (e.g., `2026-w01_weeknight-low-mess.md`)
+
 ## File Conventions
 
 ### Naming
@@ -92,6 +133,14 @@ Runs:
 **Prep / Cook / Total:**
 ```
 
+Meal Plans:
+```markdown
+**Goal:**
+**Constraints:**
+**Batch items:**
+**Leftover routing:**
+```
+
 ### Standard Tags
 - `#weeknight` — quick, repeatable dinners
 - `#low-mess` — minimal cleanup
@@ -100,6 +149,8 @@ Runs:
 - `#sheet-pan` — sheet pan cooking
 - `#veg` — vegetable dishes
 - `#tender` — tender texture focus
+- `#batch-prep` — suitable for weekend batch cooking
+- `#slow-cooker` — uses slow cooker method
 
 ## Measurement Standards
 
@@ -116,6 +167,25 @@ Runs:
 ### Common Conversions
 - 1 tbsp = 15 mL
 - 1 tsp = 5 mL
+
+## Pantry Staples
+
+Always stocked (can be assumed available):
+- White rice, brown rice
+- Chicken bouillon
+- Soy sauce, mirin, rice wine vinegar, sesame oil
+- Variety of hot sauces
+- Kosher salt (Diamond Crystal), black pepper
+
+## Equipment
+
+Key equipment available:
+- **Slow cooker (6-8qt)** — primary batch protein method
+- **Sous vide circulator** — mason jars only, no plastic bags
+- **Sheet pans** — for hands-off roasting
+- **Instant-read thermometer**
+- **Rice cooker**
+- Decent freezer space for batch cooking
 
 ## Working with This Repository
 
@@ -141,12 +211,20 @@ Runs:
 4. Create `run-log.md` to track runs
 5. Create `conclusions.md` (placeholder until complete)
 
+### Creating a Meal Plan
+1. Copy `templates/meal-plan.md` to `08_meal-plans/YYYY-wNN_<goal-name>.md`
+2. Fill in goal, constraints, batch items, and leftover routing
+3. Link to dishes and protocols for each day
+4. Include delta shopping list (what's not already stocked)
+
 ### Updating Indexes
-When adding new protocols/dishes/menus, update the relevant index:
+When adding new protocols/dishes/menus/runs, update the relevant index:
 - `04_indexes/recipe-index.md` — protocols by category
 - `04_indexes/dish-index.md` — composed dishes
 - `04_indexes/menu-index.md` — menus
+- `04_indexes/run-index.md` — cook logs by date
 - `04_indexes/tag-index.md` — tag definitions
+- `04_indexes/failures-and-fixes.md` — common problems and solutions
 
 ## Tasting Rubric
 
@@ -187,13 +265,29 @@ Use relative links between documents:
 
 When assisting with this repository:
 
+### Document Standards
 1. **Follow templates exactly** — use the structure from `templates/` directory
 2. **Use grams for measurements** — avoid volume measurements in protocols
 3. **Maintain linking structure** — always use relative markdown links
-4. **Update indexes** — add new protocols/dishes to appropriate index files
+4. **Update indexes** — add new protocols/dishes/runs to appropriate index files
 5. **Preserve frontmatter order** — keep metadata fields in consistent order
 6. **Be specific with ingredients** — include brand/type when it matters
 7. **Include success criteria** — every protocol needs clear "done" indicators
 8. **Document next steps** — runs should always have "fixes/next hypothesis"
 9. **Use proper date format** — YYYY-MM-DD throughout
 10. **Keep run numbers sequential** — run-01, run-02, etc.
+
+### Recipe Development (Critical)
+11. **NEVER use** raw banana, fuzzy fruits, or almonds in any recipe
+12. **Prefer** beef and pork for protein-forward dishes
+13. **Prioritize** slow cooker, sheet pan, and baked methods — minimal active time
+14. **Sous vide in mason jars only** — no plastic bags
+15. **Design for busy schedules** — low-effort, hands-off cooking
+16. **Build hearty meals** — meat and potatoes style, high satiety
+17. **Include** fiber sources and leafy greens where possible
+18. **Lean into** umami-forward, Asian-inspired, or comfort food profiles
+19. **Embrace** heat and spice; avoid bitter preparations
+20. **Use** pantry staples (soy sauce, mirin, sesame oil, rice vinegar)
+21. **Substitute** raw tomato with cooked/sauce forms when tomato flavor is needed
+22. **Include calorie estimates** — target 1800–2000 cal/day total
+23. **Design for meal prep** — batch cooking encouraged, repeatable meals are fine
