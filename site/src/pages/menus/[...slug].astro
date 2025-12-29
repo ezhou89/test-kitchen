@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const menus = await getCollection('menus');
+  return menus.map(menu => ({
+    params: { slug: menu.id },
+    props: { menu },
+  }));
+}
+
+const { menu } = Astro.props;
+const { Content } = await render(menu);
+
+function extractTitle(content: string, fallback: string): string {
+  const match = content.match(/^#\s+(.+)$/m);
+  return match ? match[1] : fallback;
+}
+
+const title = extractTitle(menu.body || '', menu.id);
+---
+
+<BaseLayout title={title}>
+  <article class="container content-page" data-pagefind-body>
+    <div class="content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .content-page {
+    max-width: 800px;
+  }
+
+  .content {
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+
+  .content :global(h1) {
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-bg-elevated);
+  }
+
+  .content :global(h2) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-card-title);
+  }
+
+  .content :global(h2::before) {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--color-cyan-bright);
+  }
+
+  .content :global(strong) {
+    color: var(--color-cyan-bright);
+  }
+</style>

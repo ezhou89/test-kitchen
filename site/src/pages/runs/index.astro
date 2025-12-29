@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+
+const runs = await getCollection('runs');
+
+// Group by year
+const byYear = runs.reduce((acc, run) => {
+  // Extract year from path like "2025/2025-12-26/filename"
+  const yearMatch = run.id.match(/^(\d{4})\//);
+  const year = yearMatch ? yearMatch[1] : 'undated';
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(run);
+  return acc;
+}, {} as Record<string, typeof runs>);
+
+// Sort years descending
+const sortedYears = Object.keys(byYear).sort((a, b) => b.localeCompare(a));
+
+// Sort runs within each year by date descending
+for (const year of sortedYears) {
+  byYear[year].sort((a, b) => b.id.localeCompare(a.id));
+}
+
+function extractTitle(content: string, fallback: string): string {
+  const match = content.match(/^#\s+(.+)$/m);
+  return match ? match[1] : fallback;
+}
+
+function parseTags(tagString: string | undefined): string[] {
+  if (!tagString) return [];
+  return tagString.split(/\s+/).map(t => t.replace(/^#/, '')).filter(Boolean);
+}
+
+function extractDate(id: string): string {
+  const match = id.match(/(\d{4}-\d{2}-\d{2})/);
+  return match ? match[1] : '';
+}
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Runs" description="Cook logs - what actually happened">
+  <div class="container">
+    <header class="page-header">
+      <h1>Runs</h1>
+      <p>Cook logs — what actually happened during each cooking session.</p>
+    </header>
+
+    {sortedYears.map(year => (
+      <section>
+        <SectionHeader title={year} tag="h2" />
+        <div class="card-grid">
+          {byYear[year].map(run => (
+            <RecipeCard
+              title={extractTitle(run.body || '', run.id)}
+              description={extractDate(run.id)}
+              href={`${base}runs/${run.id}/`}
+              tags={parseTags(run.data.tags)}
+            />
+          ))}
+        </div>
+      </section>
+    ))}
+
+    {runs.length === 0 && (
+      <div class="empty-state">
+        <p>No runs recorded. Every protocol starts somewhere.</p>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-bg-elevated);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header p {
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  section {
+    margin-bottom: var(--space-7);
+  }
+</style>

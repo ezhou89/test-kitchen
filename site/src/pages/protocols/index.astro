@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+
+const protocols = await getCollection('protocols');
+
+// Group by category
+const byCategory = protocols.reduce((acc, protocol) => {
+  const category = protocol.data.category || 'uncategorized';
+  if (!acc[category]) acc[category] = [];
+  acc[category].push(protocol);
+  return acc;
+}, {} as Record<string, typeof protocols>);
+
+// Sort categories
+const categoryOrder = ['proteins', 'sauces', 'veg-sides', 'starches', 'uncategorized'];
+const sortedCategories = Object.keys(byCategory).sort((a, b) => {
+  const aIndex = categoryOrder.indexOf(a);
+  const bIndex = categoryOrder.indexOf(b);
+  if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+  if (aIndex === -1) return 1;
+  if (bIndex === -1) return -1;
+  return aIndex - bIndex;
+});
+
+function extractTitle(content: string, fallback: string): string {
+  const match = content.match(/^#\s+(.+)$/m);
+  return match ? match[1] : fallback;
+}
+
+function parseTags(tagString: string | undefined): string[] {
+  if (!tagString) return [];
+  return tagString.split(/\s+/).map(t => t.replace(/^#/, '')).filter(Boolean);
+}
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Protocols" description="Canonical recipes - your best known methods">
+  <div class="container">
+    <header class="page-header">
+      <h1>Protocols</h1>
+      <p>Canonical recipes — your "best known" methods. What you'd share with a friend.</p>
+    </header>
+
+    {sortedCategories.map(category => (
+      <section>
+        <SectionHeader title={category} tag="h2" />
+        <div class="card-grid">
+          {byCategory[category].map(protocol => (
+            <RecipeCard
+              title={extractTitle(protocol.body || '', protocol.id)}
+              href={`${base}protocols/${protocol.id}/`}
+              category={protocol.data.category}
+              tags={parseTags(protocol.data.tags)}
+              version={protocol.data.version}
+              status={protocol.data.version?.startsWith('v1') ? 'stable' : 'beta'}
+              prepTime={protocol.data['prep time']}
+              cookTime={protocol.data['cook time']}
+            />
+          ))}
+        </div>
+      </section>
+    ))}
+
+    {protocols.length === 0 && (
+      <div class="empty-state">
+        <p>Nothing here yet — time to cook something up.</p>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-bg-elevated);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header p {
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  section {
+    margin-bottom: var(--space-7);
+  }
+</style>

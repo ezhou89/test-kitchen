@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RecipeCard from '../components/RecipeCard.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+
+const protocols = await getCollection('protocols');
+const runs = await getCollection('runs');
+const dishes = await getCollection('dishes');
+
+// Get recent runs (sort by date in filename)
+const recentRuns = runs
+  .sort((a, b) => b.id.localeCompare(a.id))
+  .slice(0, 3);
+
+// Helper to extract title from markdown content
+function extractTitle(content: string, fallback: string): string {
+  const match = content.match(/^#\s+(.+)$/m);
+  return match ? match[1] : fallback;
+}
+
+// Helper to parse tags from frontmatter string
+function parseTags(tagString: string | undefined): string[] {
+  if (!tagString) return [];
+  return tagString.split(/\s+/).map(t => t.replace(/^#/, '')).filter(Boolean);
+}
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Home">
+  <div class="container">
+    <section class="hero">
+      <h1>Test Kitchen</h1>
+      <p class="hero-subtitle">Recipe R&D Notebook</p>
+      <p class="hero-description">
+        A personal lab for recipe development. Document variables, track outcomes, iterate systematically.
+      </p>
+    </section>
+
+    <section class="quick-actions">
+      <a href={`${base}protocols/`} class="btn">Browse Protocols</a>
+      <a href={`${base}search/`} class="btn btn-secondary">Search</a>
+    </section>
+
+    <SectionHeader title="Protocols" tag="h2" />
+    <div class="card-grid">
+      {protocols.slice(0, 6).map(protocol => (
+        <RecipeCard
+          title={extractTitle(protocol.body || '', protocol.id.replace(/-/g, ' '))}
+          href={`${base}protocols/${protocol.id}/`}
+          category={protocol.data.category}
+          tags={parseTags(protocol.data.tags)}
+          version={protocol.data.version}
+          status={protocol.data.version?.startsWith('v1') ? 'stable' : 'beta'}
+          prepTime={protocol.data['prep time']}
+          cookTime={protocol.data['cook time']}
+        />
+      ))}
+    </div>
+    {protocols.length > 6 && (
+      <p class="view-all">
+        <a href={`${base}protocols/`}>View all {protocols.length} protocols →</a>
+      </p>
+    )}
+
+    {recentRuns.length > 0 && (
+      <>
+        <SectionHeader title="Recent Runs" tag="h2" />
+        <div class="card-grid">
+          {recentRuns.map(run => (
+            <RecipeCard
+              title={extractTitle(run.body || '', run.id)}
+              href={`${base}runs/${run.id}/`}
+              tags={parseTags(run.data.tags)}
+            />
+          ))}
+        </div>
+      </>
+    )}
+
+    {dishes.length > 0 && (
+      <>
+        <SectionHeader title="Dishes" tag="h2" />
+        <div class="card-grid">
+          {dishes.slice(0, 3).map(dish => (
+            <RecipeCard
+              title={extractTitle(dish.body || '', dish.id)}
+              href={`${base}dishes/${dish.id}/`}
+            />
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: var(--space-8) 0;
+    border-bottom: 1px solid var(--color-bg-elevated);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero h1 {
+    margin-bottom: var(--space-2);
+    border-bottom: 4px solid var(--color-cyan-bright);
+    display: inline-block;
+    padding-bottom: var(--space-2);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: var(--text-section);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-description {
+    max-width: 500px;
+    margin: 0 auto;
+    color: var(--color-text-secondary);
+  }
+
+  .quick-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-7);
+  }
+
+  .view-all {
+    margin-top: var(--space-5);
+    text-align: center;
+  }
+</style>

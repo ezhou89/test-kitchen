@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBox from '../components/SearchBox.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Search" description="Search all protocols, runs, and recipes">
+  <div class="container">
+    <header class="page-header">
+      <h1>Search</h1>
+      <p>Search across all protocols, runs, dishes, and menus.</p>
+    </header>
+
+    <SearchBox />
+
+    <div class="search-tips">
+      <h3>Search Tips</h3>
+      <ul>
+        <li>Search by ingredient: <code>chicken</code>, <code>soy sauce</code></li>
+        <li>Search by technique: <code>sheet pan</code>, <code>slow cooker</code></li>
+        <li>Search by tag: <code>weeknight</code>, <code>high-protein</code></li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-bg-elevated);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header p {
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .search-tips {
+    margin-top: var(--space-7);
+    padding: var(--space-5);
+    background: var(--color-bg-card);
+    border-left: var(--border-accent);
+  }
+
+  .search-tips h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .search-tips ul {
+    margin: 0;
+    padding-left: var(--space-5);
+  }
+
+  .search-tips code {
+    color: var(--color-cyan-bright);
+  }
+</style>
+
+<link href={`${base}pagefind/pagefind-ui.css`} rel="stylesheet" />
