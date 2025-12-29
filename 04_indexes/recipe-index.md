@@ -2,6 +2,7 @@
 
 ## Sauces
 - [Lemon-Herb Vinaigrette](../01_protocols/sauces/lemon-herb-vinaigrette.md)
+- [Perpetual Vegetable Stock (Crockpot)](../01_protocols/sauces/perpetual-vegetable-stock_crockpot.md)
 - [Quick Soy-Ginger Glaze](../01_protocols/sauces/quick-soy-ginger-glaze.md)
 
 ## Proteins
