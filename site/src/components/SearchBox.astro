@@ -4,41 +4,39 @@ interface Props {
 }
 
 const { placeholder = "Search protocols..." } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <div class="search-box">
   <div id="search"></div>
 </div>
 
-<script>
-  // Pagefind integration - will be populated after build
+<script is:inline define:vars={{ base }}>
+  // Pagefind integration - loads after build generates pagefind files
   async function initSearch() {
-    // @ts-ignore
-    const pagefind = await import('/pagefind/pagefind.js');
-    await pagefind.init();
+    try {
+      const pagefindPath = base + 'pagefind/pagefind-ui.js';
+      await import(pagefindPath);
 
-    const searchContainer = document.getElementById('search');
-    if (searchContainer) {
-      // @ts-ignore
-      new pagefind.PagefindUI({
+      new window.PagefindUI({
         element: '#search',
         showSubResults: true,
         showImages: false,
+        baseUrl: base,
       });
-    }
-  }
-
-  // Only run if Pagefind is available (after build)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSearch);
-  } else {
-    initSearch().catch(() => {
-      // Pagefind not available yet (dev mode)
+    } catch (e) {
+      // Pagefind not available (dev mode or before indexing)
       const container = document.getElementById('search');
       if (container) {
         container.innerHTML = '<p style="color: var(--color-text-muted)">Search available after build</p>';
       }
-    });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSearch);
+  } else {
+    initSearch();
   }
 </script>
 
