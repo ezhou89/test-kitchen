@@ -1,0 +1,89 @@
+---
+interface Props {
+  placeholder?: string;
+}
+
+const { placeholder = "Search protocols..." } = Astro.props;
+---
+
+<div class="search-box">
+  <div id="search"></div>
+</div>
+
+<script>
+  // Pagefind integration - will be populated after build
+  async function initSearch() {
+    // @ts-ignore
+    const pagefind = await import('/pagefind/pagefind.js');
+    await pagefind.init();
+
+    const searchContainer = document.getElementById('search');
+    if (searchContainer) {
+      // @ts-ignore
+      new pagefind.PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+      });
+    }
+  }
+
+  // Only run if Pagefind is available (after build)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSearch);
+  } else {
+    initSearch().catch(() => {
+      // Pagefind not available yet (dev mode)
+      const container = document.getElementById('search');
+      if (container) {
+        container.innerHTML = '<p style="color: var(--color-text-muted)">Search available after build</p>';
+      }
+    });
+  }
+</script>
+
+<style>
+  .search-box {
+    margin-bottom: var(--space-6);
+  }
+
+  /* Pagefind UI overrides */
+  :global(.pagefind-ui) {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: var(--color-cyan-bright);
+    --pagefind-ui-text: var(--color-text-primary);
+    --pagefind-ui-background: var(--color-bg-card);
+    --pagefind-ui-border: var(--color-text-muted);
+    --pagefind-ui-tag: var(--color-bg-elevated);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0;
+    --pagefind-ui-font: var(--font-mono);
+  }
+
+  :global(.pagefind-ui__search-input) {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--color-text-muted) !important;
+    border-radius: 0 !important;
+    font-family: var(--font-mono) !important;
+  }
+
+  :global(.pagefind-ui__search-input:focus) {
+    border-bottom-color: var(--color-cyan-bright) !important;
+    box-shadow: 0 1px 0 var(--color-cyan-bright) !important;
+  }
+
+  :global(.pagefind-ui__result) {
+    border-left: 4px solid var(--color-cyan-bright) !important;
+    background: var(--color-bg-card) !important;
+    padding: var(--space-4) !important;
+  }
+
+  :global(.pagefind-ui__result-link) {
+    color: var(--color-cyan-bright) !important;
+  }
+
+  :global(.pagefind-ui__result-excerpt) {
+    color: var(--color-text-secondary) !important;
+  }
+</style>

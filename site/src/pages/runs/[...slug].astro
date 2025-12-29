@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Badge from '../../components/Badge.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const runs = await getCollection('runs');
+  return runs.map(run => ({
+    params: { slug: run.id },
+    props: { run },
+  }));
+}
+
+const { run } = Astro.props;
+const { Content } = await render(run);
+
+function extractTitle(content: string, fallback: string): string {
+  const match = content.match(/^#\s+(.+)$/m);
+  return match ? match[1] : fallback;
+}
+
+function parseTags(tagString: string | undefined): string[] {
+  if (!tagString) return [];
+  return tagString.split(/\s+/).map(t => t.replace(/^#/, '')).filter(Boolean);
+}
+
+const title = extractTitle(run.body || '', run.id);
+const tags = parseTags(run.data.tags);
+---
+
+<BaseLayout title={title}>
+  <article class="container run-page" data-pagefind-body>
+    <header class="run-header">
+      <div class="meta-bar">
+        <Badge variant="beta" text="run" />
+        {run.data.date && <span class="meta-item">{run.data.date}</span>}
+        {tags.map(tag => <span class="tag">#{tag}</span>)}
+      </div>
+
+      <h1>{title}</h1>
+
+      <div class="meta-bar">
+        {run.data['protocol used'] && (
+          <span class="meta-item">
+            <strong>Protocol:</strong> {run.data['protocol used']}
+          </span>
+        )}
+        {run.data.prep && (
+          <>
+            <span class="meta-divider">·</span>
+            <span class="meta-item">
+              <strong>Prep:</strong> {run.data.prep}
+            </span>
+          </>
+        )}
+        {run.data.cook && (
+          <>
+            <span class="meta-divider">·</span>
+            <span class="meta-item">
+              <strong>Cook:</strong> {run.data.cook}
+            </span>
+          </>
+        )}
+      </div>
+    </header>
+
+    <div class="run-content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .run-page {
+    max-width: 800px;
+  }
+
+  .run-header {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-bg-elevated);
+  }
+
+  .run-header h1 {
+    margin: var(--space-4) 0;
+  }
+
+  .run-content {
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+
+  .run-content :global(h2) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-card-title);
+  }
+
+  .run-content :global(h2::before) {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--color-cyan-bright);
+  }
+
+  .run-content :global(strong) {
+    color: var(--color-cyan-bright);
+  }
+
+  .run-content :global(blockquote) {
+    border-left: 4px solid var(--color-lime-bright);
+    background: var(--color-bg-card);
+    padding: var(--space-4);
+    margin: var(--space-5) 0;
+  }
+</style>

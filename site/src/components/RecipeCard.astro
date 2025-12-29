@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  href: string;
+  category?: string;
+  tags?: string[];
+  version?: string;
+  status?: 'stable' | 'beta' | 'wip' | 'draft';
+  prepTime?: string;
+  cookTime?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  category,
+  tags = [],
+  version,
+  status,
+  prepTime,
+  cookTime
+} = Astro.props;
+
+const statusClass = status ? `badge-${status}` : '';
+---
+
+<a href={href} class="recipe-card card">
+  <div class="card-badges">
+    {status && <span class={`badge ${statusClass}`}>{status}</span>}
+    {version && <span class="badge badge-draft">{version}</span>}
+  </div>
+
+  <h3 class="card-title">{title}</h3>
+
+  {description && <p class="card-description">{description}</p>}
+
+  {tags.length > 0 && (
+    <div class="tags">
+      {tags.map(tag => <span class="tag">#{tag}</span>)}
+    </div>
+  )}
+
+  <div class="card-meta">
+    {category && <span>{category}</span>}
+    {prepTime && <span>Prep: {prepTime}</span>}
+    {cookTime && <span>Cook: {cookTime}</span>}
+  </div>
+</a>
+
+<style>
+  .recipe-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .recipe-card:hover {
+    text-shadow: none;
+  }
+
+  .recipe-card:hover .card-title {
+    color: var(--color-cyan-bright);
+  }
+
+  .card-badges {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+</style>

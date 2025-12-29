@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RecipeCard from '../../components/RecipeCard.astro';
+import { getCollection } from 'astro:content';
+
+const menus = await getCollection('menus');
+
+function extractTitle(content: string, fallback: string): string {
+  const match = content.match(/^#\s+(.+)$/m);
+  return match ? match[1] : fallback;
+}
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Menus" description="Multi-course menus with timelines">
+  <div class="container">
+    <header class="page-header">
+      <h1>Menus</h1>
+      <p>Multi-course menus with master timelines.</p>
+    </header>
+
+    <div class="card-grid">
+      {menus.map(menu => (
+        <RecipeCard
+          title={extractTitle(menu.body || '', menu.id)}
+          href={`${base}menus/${menu.id}/`}
+        />
+      ))}
+    </div>
+
+    {menus.length === 0 && (
+      <div class="empty-state">
+        <p>Nothing here yet — time to cook something up.</p>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-bg-elevated);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header p {
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+</style>

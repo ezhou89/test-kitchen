@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import Badge from '../../components/Badge.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const protocols = await getCollection('protocols');
+  return protocols.map(protocol => ({
+    params: { slug: protocol.id },
+    props: { protocol },
+  }));
+}
+
+const { protocol } = Astro.props;
+const { Content } = await render(protocol);
+
+function extractTitle(content: string, fallback: string): string {
+  const match = content.match(/^#\s+(.+)$/m);
+  return match ? match[1] : fallback;
+}
+
+function parseTags(tagString: string | undefined): string[] {
+  if (!tagString) return [];
+  return tagString.split(/\s+/).map(t => t.replace(/^#/, '')).filter(Boolean);
+}
+
+const title = extractTitle(protocol.body || '', protocol.id);
+const tags = parseTags(protocol.data.tags);
+const status = protocol.data.version?.startsWith('v1') ? 'stable' : 'beta';
+---
+
+<BaseLayout title={title}>
+  <article class="container protocol-page" data-pagefind-body>
+    <header class="protocol-header">
+      <div class="meta-bar">
+        <Badge variant={status} text={status} />
+        {protocol.data.version && <Badge variant="draft" text={protocol.data.version} />}
+        {protocol.data.category && <span class="tag">{protocol.data.category}</span>}
+        {tags.map(tag => <span class="tag">#{tag}</span>)}
+      </div>
+
+      <h1>{title}</h1>
+
+      <div class="meta-bar">
+        {protocol.data['prep time'] && (
+          <span class="meta-item">
+            <strong>Prep:</strong> {protocol.data['prep time']}
+          </span>
+        )}
+        {protocol.data['cook time'] && (
+          <>
+            <span class="meta-divider">·</span>
+            <span class="meta-item">
+              <strong>Cook:</strong> {protocol.data['cook time']}
+            </span>
+          </>
+        )}
+        {(protocol.data.servings || protocol.data.yield) && (
+          <>
+            <span class="meta-divider">·</span>
+            <span class="meta-item">
+              <strong>Yield:</strong> {protocol.data.servings || protocol.data.yield}
+            </span>
+          </>
+        )}
+      </div>
+    </header>
+
+    <div class="protocol-content">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .protocol-page {
+    max-width: 800px;
+  }
+
+  .protocol-header {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-bg-elevated);
+  }
+
+  .protocol-header h1 {
+    margin: var(--space-4) 0;
+  }
+
+  .protocol-content {
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+
+  /* Style markdown content */
+  .protocol-content :global(h2) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-7);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-card-title);
+  }
+
+  .protocol-content :global(h2::before) {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--color-cyan-bright);
+  }
+
+  .protocol-content :global(h3) {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+  }
+
+  .protocol-content :global(ul),
+  .protocol-content :global(ol) {
+    margin-bottom: var(--space-5);
+  }
+
+  .protocol-content :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .protocol-content :global(strong) {
+    color: var(--color-cyan-bright);
+  }
+
+  .protocol-content :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-bg-elevated);
+    margin: var(--space-6) 0;
+  }
+
+  .protocol-content :global(blockquote) {
+    border-left: 4px solid var(--color-lime-bright);
+    background: var(--color-bg-card);
+    padding: var(--space-4);
+    margin: var(--space-5) 0;
+    color: var(--color-text-secondary);
+  }
+
+  .protocol-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    margin: var(--space-5) 0;
+  }
+
+  .protocol-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-5) 0;
+  }
+
+  .protocol-content :global(th),
+  .protocol-content :global(td) {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-bg-elevated);
+    text-align: left;
+  }
+
+  .protocol-content :global(th) {
+    background: var(--color-bg-card);
+    color: var(--color-cyan-bright);
+    font-weight: 500;
+  }
+</style>
