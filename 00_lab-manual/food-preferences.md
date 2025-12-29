@@ -98,8 +98,8 @@ Reliable fallbacks that require zero thought:
 **Storage:** Decent freezer space for batch cooking
 
 **Preferred Cooking Methods:**
-- Sous vide — set and forget for hours, perfect proteins
-- Slow cooker (6-8qt) — batch proteins, stews, chili, braises
+- Slow cooker (6-8qt) — primary batch protein method for large cuts
+- Sous vide (mason jars only, no plastic) — eggs, oatmeal, portioned proteins, sauces
 - Baked/roasted — hands-off oven time, sheet pan meals
 
 **Cooking Style:** Meat and potatoes — hearty, satisfying, no-fuss meals
@@ -136,13 +136,14 @@ When creating new protocols for this kitchen:
 
 1. **Avoid** raw banana, fuzzy fruits, and almonds in all recipes
 2. **Prefer** beef and pork for protein-forward dishes
-3. **Prioritize** sous vide, slow cooker, sheet pan, and baked methods — minimal active time
-4. **Design for busy schedules** — low-effort, hands-off cooking
-5. **Build hearty meals** — meat and potatoes style, high satiety
-6. **Include** fiber sources and leafy greens where possible (goal area)
-7. **Lean into** umami-forward, Asian-inspired, or comfort food profiles
-8. **Embrace** heat and spice; avoid bitter preparations
-9. **Use** pantry staples (soy, mirin, sesame, rice vinegar) for convenience
-10. **Sub** raw tomato with cooked/sauce forms when tomato flavor is needed
-11. **Include calorie estimates** — target 1800–2000 cal/day total
-12. **Design for meal prep** — repeatable meals are fine, batch cooking encouraged
+3. **Prioritize** slow cooker, sheet pan, and baked methods — minimal active time
+4. **Sous vide in mason jars only** — no plastic bags; good for eggs, oatmeal, portioned meals
+5. **Design for busy schedules** — low-effort, hands-off cooking
+6. **Build hearty meals** — meat and potatoes style, high satiety
+7. **Include** fiber sources and leafy greens where possible (goal area)
+8. **Lean into** umami-forward, Asian-inspired, or comfort food profiles
+9. **Embrace** heat and spice; avoid bitter preparations
+10. **Use** pantry staples (soy, mirin, sesame, rice vinegar) for convenience
+11. **Sub** raw tomato with cooked/sauce forms when tomato flavor is needed
+12. **Include calorie estimates** — target 1800–2000 cal/day total
+13. **Design for meal prep** — repeatable meals are fine, batch cooking encouraged
