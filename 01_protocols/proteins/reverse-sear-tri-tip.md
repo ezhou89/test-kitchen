@@ -55,6 +55,36 @@ Foolproof method for Costco prime tri-tip that delivers edge-to-edge medium-rare
 - Slices tender when cut against the grain
 - Juicy — resting was adequate if cutting board has some juice but meat isn't dry
 
+## From Frozen Method (experimental)
+
+**Status:** Untested — needs validation run
+
+For batch prep: season multiple roasts, freeze individually, cook directly from frozen with no thaw.
+
+### Prep (weekend batch)
+1. **Season roasts** as normal (salt, pepper, garlic powder).
+2. **Wrap tightly** in plastic wrap, then foil, or vacuum seal.
+3. **Freeze flat** on sheet pan, then store. Keeps 3 months.
+
+### Cook from frozen
+1. **Preheat oven** to 200°F (93°C) — lower temp compensates for frozen start.
+2. **Unwrap roast**, place on wire rack over sheet pan, fat cap up.
+3. **Roast until internal temp reaches 115-120°F** (46-49°C). Expect 90-100 min for a 1kg roast. Check at 75 min.
+4. **Rest 5 min**, then sear and slice as normal.
+
+### Why this works
+- The low oven temp gently thaws and cooks simultaneously
+- Extended time still avoids the gray band (gentle heat transfer)
+- No planning ahead — grab from freezer, cook same day
+
+### Test variables to validate
+- [ ] Actual time to reach 115°F internal from frozen
+- [ ] Crust quality compared to fresh
+- [ ] Moisture/juiciness compared to fresh
+- [ ] Any texture differences
+
+---
+
 ## Variations
 
 **Korean-ish:**
