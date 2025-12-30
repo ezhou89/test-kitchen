@@ -7,6 +7,14 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"]
-    }
-  }
+    },
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "types": ["vitest/globals"],
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.astro"],
+  "exclude": ["src/content.config.ts"]
 }
