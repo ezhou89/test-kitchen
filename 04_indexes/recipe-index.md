@@ -17,4 +17,5 @@
 - [Roasted Carrots (Cumin + Honey)](../01_protocols/veg-sides/roasted-carrots_cumin-honey.md)
 
 ## Starches
+- [Chazuke (Tea-Over-Rice)](../01_protocols/starches/chazuke.md)
 - [Rice Cooker Jasmine Rice](../01_protocols/starches/rice-cooker-jasmine-rice.md)
