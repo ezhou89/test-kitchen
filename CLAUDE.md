@@ -66,7 +66,16 @@ test-kitchen/
 ├── 06_dishes/           # Composed dishes (combine multiple protocols)
 ├── 07_menus/            # Multi-course menus with timelines
 ├── 08_meal-plans/       # Weekly/goal-based meal plans
-└── templates/           # Copy/paste templates for all document types
+├── templates/           # Copy/paste templates for all document types
+├── site/                # Astro-based website (GitHub Pages deployment)
+│   ├── src/
+│   │   ├── pages/       # Route pages (protocols, dishes, menus, runs, search)
+│   │   ├── layouts/     # Base layout templates
+│   │   ├── components/  # Reusable UI components
+│   │   └── styles/      # Global CSS
+│   ├── brand/           # Brand bible and design system
+│   └── public/          # Static assets (favicon, etc.)
+└── .github/workflows/   # GitHub Actions (auto-deploy to Pages)
 ```
 
 ## Core Concepts
@@ -261,6 +270,68 @@ Use relative links between documents:
 - **Issues** = ideas/backlog (e.g., "Make weeknight broccoli less mushy")
 - **Pull Requests** = write-ups when updating a protocol with evidence from runs
 
+## Website (Astro + GitHub Pages)
+
+The `site/` directory contains an Astro-based static website that renders all markdown content.
+
+### Tech Stack
+- **Framework:** Astro v5 with MDX support
+- **Search:** Pagefind (client-side, generated at build)
+- **Deployment:** GitHub Pages via GitHub Actions
+- **Fonts:** Oswald (headlines), JetBrains Mono (body/code)
+
+### Development Commands
+
+```bash
+cd site
+npm install          # Install dependencies
+npm run dev          # Start dev server (localhost:4321)
+npm run build        # Build for production
+npm run preview      # Preview production build
+```
+
+### Content Collections
+
+The site reads markdown from root directories as content collections:
+- `protocols` → `../01_protocols/**/*.md`
+- `runs` → `../02_runs/**/*.md`
+- `dishes` → `../06_dishes/**/*.md`
+- `menus` → `../07_menus/**/*.md`
+- `plans` → `../08_meal-plans/**/*.md`
+- `manual` → `../00_lab-manual/**/*.md`
+
+### Deployment
+
+Automatic via `.github/workflows/deploy.yml`:
+1. Triggered on push to `main` branch
+2. Builds Astro site in `site/` directory
+3. Runs Pagefind to generate search index
+4. Deploys to GitHub Pages
+
+### Brand Guidelines
+
+See `site/brand/brand-bible.md` for the full design system. Key points:
+
+**Visual Identity:** Dark, futuristic, scientific — "Sibyl System meets enthusiastic lab assistant"
+
+**Colors:**
+- Background: Deep Space `#0d0d14`, Card Surface `#1a1a2e`
+- Text: Primary `#eaeaea`, Secondary `#8a8aa3`, Muted `#5a5a73`
+- Accent Cyan: `#00f5ff` (links, primary actions)
+- Accent Lime: `#b8ff00` (tags, badges, stable status)
+
+**Typography:**
+- Headlines: Oswald, uppercase for major sections
+- Body/Code: JetBrains Mono (monospace throughout)
+
+**Components:**
+- Cards have 4px left cyan accent border, sharp corners (no border-radius)
+- Buttons are outlined/wireframe style (transparent fill, visible border)
+- Status badges: STABLE (lime), BETA (cyan), WIP (warning), DRAFT (muted)
+
+**Section Names:**
+- `INGREDIENTS`, `METHOD`, `FIELD NOTES`, `SUCCESS CRITERIA`, `SEE ALSO`, `RUN LOG`
+
 ## AI Assistant Guidelines
 
 When assisting with this repository:
@@ -291,3 +362,14 @@ When assisting with this repository:
 21. **Substitute** raw tomato with cooked/sauce forms when tomato flavor is needed
 22. **Include calorie estimates** — target 1800–2000 cal/day total
 23. **Design for meal prep** — batch cooking encouraged, repeatable meals are fine
+
+### Website Development
+24. **Follow brand bible** — see `site/brand/brand-bible.md` for design system
+25. **Use sharp corners** — no border-radius on cards or buttons
+26. **Dark mode only** — the site is designed for dark backgrounds
+27. **Monospace body text** — JetBrains Mono for all body content
+28. **Left-bar accent pattern** — 4px cyan bar on left edge of cards/sections
+29. **Status badges** — STABLE (lime), BETA (cyan), WIP (warning), DRAFT (muted)
+30. **Test with `npm run build`** — ensure the site builds before committing
+31. **Content comes from markdown** — site reads from `01_protocols/`, `06_dishes/`, etc.
+32. **Pagefind search** — search index regenerates on build automatically
