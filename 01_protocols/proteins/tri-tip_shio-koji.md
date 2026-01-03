@@ -3,6 +3,7 @@
 **Category:** proteins
 **Tags:** #beef #japanese-ish #high-protein #batch-prep #umami
 **Version:** v0.1
+**Created:** 2025-12-30
 **Servings / Yield:** 6-8 servings (from ~600-800g tri-tip slab)
 **Prep time:** 5 min (+ 24-72 hour marinade)
 **Cook time:** 60-75 min

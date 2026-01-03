@@ -6,6 +6,7 @@ const protocolSchema = z.object({
   category: z.string().optional(),
   tags: z.string().optional(),
   version: z.string().optional(),
+  created: z.string().optional(),
   servings: z.string().optional(),
   yield: z.string().optional(),
   'prep time': z.string().optional(),

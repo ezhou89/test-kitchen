@@ -16,6 +16,7 @@ const base = import.meta.env.BASE_URL;
     <meta name="description" content={description} />
     <title>{title} | Test Kitchen</title>
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <slot name="head" />
   </head>
   <body>
     <header class="site-header">

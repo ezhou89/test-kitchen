@@ -3,6 +3,7 @@
 **Category:** proteins
 **Tags:** #beef #batch-prep #high-protein #weeknight
 **Version:** v0.1
+**Created:** 2025-12-29
 **Servings / Yield:** 6-8 servings (from ~1kg / 2-3 lb roast)
 **Prep time:** 10 min (+ optional overnight dry brine)
 **Cook time:** 60-75 min

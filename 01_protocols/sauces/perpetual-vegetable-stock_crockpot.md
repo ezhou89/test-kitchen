@@ -3,6 +3,7 @@
 **Category:** sauces
 **Tags:** #low-mess #slow-cooker #base #zero-waste
 **Version:** v0.1
+**Created:** 2025-12-29
 **Yield:** continuous (~1–2 L per draw)
 **Prep time:** 10 min initial, 5 min per replenishment
 **Cook time:** 8–12 hours initial, then continuous

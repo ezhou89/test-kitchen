@@ -2,7 +2,8 @@
 
 **Category:** veg-sides  
 **Tags:** #weeknight #low-mess #tender #veg  
-**Version:** v0.1  
+**Version:** v0.1
+**Created:** 2025-12-26
 **Servings:** 2–4  
 **Prep time:** 5 min  
 **Cook time:** 6–8 min  
