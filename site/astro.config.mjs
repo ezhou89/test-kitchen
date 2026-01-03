@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://ezhou89.github.io',
-  base: '/test-kitchen',
+  base: '/test-kitchen/',
   integrations: [mdx()],
   content: {
     collections: {
