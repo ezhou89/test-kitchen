@@ -3,6 +3,7 @@
 **Category:** proteins
 **Tags:** #beef #slow-cooker #batch-prep #high-protein #comfort-food
 **Version:** v0.1
+**Created:** 2025-12-30
 **Servings / Yield:** 6-8 servings (from ~500g tri-tip portion)
 **Prep time:** 20 min
 **Cook time:** 6-8 hours (low) or 4-5 hours (high)

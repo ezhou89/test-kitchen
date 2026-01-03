@@ -2,7 +2,8 @@
 
 **Category:** sauces  
 **Tags:** #weeknight #low-mess #bright #salad #veg  
-**Version:** v0.1  
+**Version:** v0.1
+**Created:** 2025-12-26
 **Yield:** ~120 g (about 8 servings at 1 tbsp)  
 **Prep time:** 5 min  
 **Cook time:** 0 min  

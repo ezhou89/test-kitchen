@@ -3,6 +3,7 @@
 **Category:** proteins
 **Tags:** #beef #batch-prep #high-protein #strange #low-mess
 **Version:** v0.1
+**Created:** 2025-12-30
 **Servings / Yield:** 6-8 servings (from ~400-500g tri-tip portion)
 **Prep time:** 15 min (+ optional 4-24 hour cure)
 **Cook time:** 3-4 hours

@@ -2,7 +2,8 @@
 
 **Category:** sauces  
 **Tags:** #weeknight #japanese-ish #glaze #low-mess  
-**Version:** v0.1  
+**Version:** v0.1
+**Created:** 2025-12-26
 **Yield:** ~150 g  
 **Prep time:** 5 min  
 **Cook time:** 6–8 min  

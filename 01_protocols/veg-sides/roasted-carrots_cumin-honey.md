@@ -2,7 +2,8 @@
 
 **Category:** veg-sides  
 **Tags:** #weeknight #sheet-pan #sweet-savory #veg  
-**Version:** v0.1  
+**Version:** v0.1
+**Created:** 2025-12-26
 **Servings:** 2–4  
 **Prep time:** 10 min  
 **Cook time:** 20–30 min  

@@ -3,6 +3,7 @@
 **Category:** starches
 **Tags:** #weeknight #japanese-ish #low-mess #high-protein
 **Version:** v0.1
+**Created:** 2026-01-02
 **Servings:** 1
 **Prep time:** 5 min
 **Cook time:** 0 min (assembly only)

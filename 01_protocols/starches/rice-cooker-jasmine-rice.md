@@ -2,7 +2,8 @@
 
 **Category:** starches  
 **Tags:** #weeknight #staple #rice-cooker  
-**Version:** v0.1  
+**Version:** v0.1
+**Created:** 2025-12-26
 **Servings:** 2–4  
 **Prep time:** 5 min  
 **Cook time:** per machine (~30–45 min)  

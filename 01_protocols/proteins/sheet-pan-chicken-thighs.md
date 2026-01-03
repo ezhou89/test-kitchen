@@ -2,7 +2,8 @@
 
 **Category:** proteins  
 **Tags:** #weeknight #low-mess #high-protein #sheet-pan  
-**Version:** v0.1  
+**Version:** v0.1
+**Created:** 2025-12-26
 **Servings:** 2–4  
 **Prep time:** 10 min  
 **Cook time:** 30–40 min  
