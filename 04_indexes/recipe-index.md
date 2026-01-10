@@ -6,8 +6,10 @@
 - [Quick Soy-Ginger Glaze](../01_protocols/sauces/quick-soy-ginger-glaze.md)
 
 ## Proteins
+- [Flap Meat Carne Asada](../01_protocols/proteins/flap-meat-carne-asada.md)
 - [Hainanese Chicken Rice (Rice Cooker)](../01_protocols/proteins/hainanese-chicken-rice_rice-cooker.md)
 - [Korean Beef Rice (Rice Cooker)](../01_protocols/proteins/korean-beef-rice_rice-cooker.md)
+- [Korean Braised Short Ribs (Slow Cooker)](../01_protocols/proteins/korean-short-ribs_slow-cooker.md)
 - [Reverse Sear Tri-Tip](../01_protocols/proteins/reverse-sear-tri-tip.md)
 - [Sheet-Pan Chicken Thighs (Crispy Skin)](../01_protocols/proteins/sheet-pan-chicken-thighs.md)
 - [Shio Koji Tri-Tip](../01_protocols/proteins/tri-tip_shio-koji.md)
