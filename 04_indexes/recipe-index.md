@@ -6,6 +6,8 @@
 - [Quick Soy-Ginger Glaze](../01_protocols/sauces/quick-soy-ginger-glaze.md)
 
 ## Proteins
+- [Birria Short Ribs (Slow Cooker)](../01_protocols/proteins/birria-short-ribs_slow-cooker.md)
+- [Chinese Red-Braised Short Ribs (Slow Cooker)](../01_protocols/proteins/red-braised-short-ribs_slow-cooker.md)
 - [Flap Meat Carne Asada](../01_protocols/proteins/flap-meat-carne-asada.md)
 - [Hainanese Chicken Rice (Rice Cooker)](../01_protocols/proteins/hainanese-chicken-rice_rice-cooker.md)
 - [Korean Beef Rice (Rice Cooker)](../01_protocols/proteins/korean-beef-rice_rice-cooker.md)
