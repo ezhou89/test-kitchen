@@ -28,3 +28,10 @@
 - [Chazuke (Tea-Over-Rice)](../01_protocols/starches/chazuke.md)
 - [Rice Cooker Jasmine Rice](../01_protocols/starches/rice-cooker-jasmine-rice.md)
 - [Takikomi Gohan (Rice Cooker)](../01_protocols/starches/takikomi-gohan_rice-cooker.md)
+
+## Desserts
+- [Chocolate Protein Ice Cream (Ninja Creami)](../01_protocols/desserts/chocolate-protein-ice-cream_creami.md)
+- [Cookies and Cream Ice Cream (Ninja Creami)](../01_protocols/desserts/cookies-and-cream-ice-cream_creami.md)
+- [Mexican Chocolate Ice Cream (Ninja Creami)](../01_protocols/desserts/mexican-chocolate-ice-cream_creami.md)
+- [Peanut Butter Protein Ice Cream (Ninja Creami)](../01_protocols/desserts/peanut-butter-protein-ice-cream_creami.md)
+- [Strawberry Protein Ice Cream (Ninja Creami)](../01_protocols/desserts/strawberry-protein-ice-cream_creami.md)
