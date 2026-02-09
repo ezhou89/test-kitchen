@@ -32,6 +32,9 @@
 ## Desserts
 - [Chocolate Protein Ice Cream (Ninja Creami)](../01_protocols/desserts/chocolate-protein-ice-cream_creami.md)
 - [Cookies and Cream Ice Cream (Ninja Creami)](../01_protocols/desserts/cookies-and-cream-ice-cream_creami.md)
+- [Greek Yogurt Mango Lassi Ice Cream (Ninja Creami)](../01_protocols/desserts/greek-yogurt-mango-lassi_creami.md) — BETA
+- [Greek Yogurt Rich Chocolate Ice Cream (Ninja Creami)](../01_protocols/desserts/greek-yogurt-rich-chocolate_creami.md) — BETA
+- [Greek Yogurt Vanilla Bean Ice Cream (Ninja Creami)](../01_protocols/desserts/greek-yogurt-vanilla-bean_creami.md) — BETA
 - [Mexican Chocolate Ice Cream (Ninja Creami)](../01_protocols/desserts/mexican-chocolate-ice-cream_creami.md)
 - [Peanut Butter Protein Ice Cream (Ninja Creami)](../01_protocols/desserts/peanut-butter-protein-ice-cream_creami.md)
 - [Strawberry Protein Ice Cream (Ninja Creami)](../01_protocols/desserts/strawberry-protein-ice-cream_creami.md)
